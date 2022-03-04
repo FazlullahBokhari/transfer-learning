@@ -6,3 +6,28 @@
 [2022-03-04 13:02:19,272: INFO: prepare_base_model]: base model is saved at artifacts\models\base_models.h5
 [2022-03-04 13:02:19,343: INFO: prepare_base_model]: >>>>> stage prepare a base model  completed!<<<<<
 
+[2022-03-04 13:13:32,258: INFO: prepare_base_model]: 
+********************
+[2022-03-04 13:13:32,260: INFO: prepare_base_model]: >>>>> stage prepare a base model  started <<<<<
+[2022-03-04 13:13:32,261: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-03-04 13:14:09,458: INFO: transfer_learning]: 
+********************
+[2022-03-04 13:14:09,458: INFO: transfer_learning]: >>>>> stage transferlearning started <<<<<
+[2022-03-04 13:14:09,459: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-03-04 13:14:09,459: ERROR: transfer_learning]: load_model() missing 1 required positional argument: 'filepath'
+Traceback (most recent call last):
+  File "C:\Project_work\transfer-learning\src\transfer_learning.py", line 39, in <module>
+    main(config_path=parsed_args.config)
+  File "C:\Project_work\transfer-learning\src\transfer_learning.py", line 27, in main
+    base_model = tf.keras.models.load_model()
+  File "C:\Users\fazlu\anaconda3\envs\tLearning\lib\site-packages\keras\utils\traceback_utils.py", line 67, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Users\fazlu\anaconda3\envs\tLearning\lib\site-packages\keras\utils\traceback_utils.py", line 64, in error_handler
+    return fn(*args, **kwargs)
+TypeError: load_model() missing 1 required positional argument: 'filepath'
+[2022-03-04 13:15:22,854: INFO: transfer_learning]: 
+********************
+[2022-03-04 13:15:22,854: INFO: transfer_learning]: >>>>> stage transferlearning started <<<<<
+[2022-03-04 13:15:22,855: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-03-04 13:15:22,985: INFO: transfer_learning]: >>>>> stage transferlearning completed!<<<<<
+
