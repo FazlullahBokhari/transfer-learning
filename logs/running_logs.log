@@ -77,3 +77,123 @@ ValueError: 'output layer/' is not a valid root scope name. A root scope name ha
 [2022-03-04 13:43:30,318: INFO: common]: yaml file: configs/config.yaml loaded successfully
 [2022-03-04 13:43:30,493: INFO: transfer_learning]: >>>>> stage transferlearning completed!<<<<<
 
+[2022-03-04 13:55:39,273: INFO: transfer_learning]: 
+********************
+[2022-03-04 13:55:39,273: INFO: transfer_learning]: >>>>> stage transferlearning started <<<<<
+[2022-03-04 13:55:39,274: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-03-04 13:55:39,953: ERROR: transfer_learning]: name 'np' is not defined
+Traceback (most recent call last):
+  File "C:\Project_work\transfer-learning\src\transfer_learning.py", line 85, in <module>
+    main(config_path=parsed_args.config)
+  File "C:\Project_work\transfer-learning\src\transfer_learning.py", line 64, in main
+    y_train_bin, y_test_bin, y_valid_bin = update_odd_even_label([y_train, y_test, y_valid])
+  File "C:\Project_work\transfer-learning\src\transfer_learning.py", line 22, in update_odd_even_label
+    labels[idx] = np.where(label%2 == 0, 1, 0)
+NameError: name 'np' is not defined
+[2022-03-04 13:56:13,957: INFO: transfer_learning]: 
+********************
+[2022-03-04 13:56:13,957: INFO: transfer_learning]: >>>>> stage transferlearning started <<<<<
+[2022-03-04 13:56:13,958: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-03-04 13:56:16,012: ERROR: transfer_learning]: Graph execution error:
+
+Detected at node 'sparse_categorical_crossentropy/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits' defined at (most recent call last):
+    File "C:\Project_work\transfer-learning\src\transfer_learning.py", line 86, in <module>
+      main(config_path=parsed_args.config)
+    File "C:\Project_work\transfer-learning\src\transfer_learning.py", line 71, in main
+      history = new_model.fit(X_train, y_train,
+    File "C:\Users\fazlu\anaconda3\envs\tLearning\lib\site-packages\keras\utils\traceback_utils.py", line 64, in error_handler
+      return fn(*args, **kwargs)
+    File "C:\Users\fazlu\anaconda3\envs\tLearning\lib\site-packages\keras\engine\training.py", line 1384, in fit
+      tmp_logs = self.train_function(iterator)
+    File "C:\Users\fazlu\anaconda3\envs\tLearning\lib\site-packages\keras\engine\training.py", line 1021, in train_function
+      return step_function(self, iterator)
+    File "C:\Users\fazlu\anaconda3\envs\tLearning\lib\site-packages\keras\engine\training.py", line 1010, in step_function
+      outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "C:\Users\fazlu\anaconda3\envs\tLearning\lib\site-packages\keras\engine\training.py", line 1000, in run_step
+      outputs = model.train_step(data)
+    File "C:\Users\fazlu\anaconda3\envs\tLearning\lib\site-packages\keras\engine\training.py", line 860, in train_step
+      loss = self.compute_loss(x, y, y_pred, sample_weight)
+    File "C:\Users\fazlu\anaconda3\envs\tLearning\lib\site-packages\keras\engine\training.py", line 918, in compute_loss
+      return self.compiled_loss(
+    File "C:\Users\fazlu\anaconda3\envs\tLearning\lib\site-packages\keras\engine\compile_utils.py", line 201, in __call__
+      loss_value = loss_obj(y_t, y_p, sample_weight=sw)
+    File "C:\Users\fazlu\anaconda3\envs\tLearning\lib\site-packages\keras\losses.py", line 141, in __call__
+      losses = call_fn(y_true, y_pred)
+    File "C:\Users\fazlu\anaconda3\envs\tLearning\lib\site-packages\keras\losses.py", line 245, in call
+      return ag_fn(y_true, y_pred, **self._fn_kwargs)
+    File "C:\Users\fazlu\anaconda3\envs\tLearning\lib\site-packages\keras\losses.py", line 1862, in sparse_categorical_crossentropy
+      return backend.sparse_categorical_crossentropy(
+    File "C:\Users\fazlu\anaconda3\envs\tLearning\lib\site-packages\keras\backend.py", line 5202, in sparse_categorical_crossentropy
+      res = tf.nn.sparse_softmax_cross_entropy_with_logits(
+Node: 'sparse_categorical_crossentropy/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits'
+Received a label value of 9 which is outside the valid range of [0, 2).  Label values: 7 6 2 7 3 2 1 1 5 8 7 9 5 0 9 4 3 2 2 9 4 9 3 1 5 2 1 4 3 7 9 0
+	 [[{{node sparse_categorical_crossentropy/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits}}]] [Op:__inference_train_function_614]
+Traceback (most recent call last):
+  File "C:\Project_work\transfer-learning\src\transfer_learning.py", line 86, in <module>
+    main(config_path=parsed_args.config)
+  File "C:\Project_work\transfer-learning\src\transfer_learning.py", line 71, in main
+    history = new_model.fit(X_train, y_train,
+  File "C:\Users\fazlu\anaconda3\envs\tLearning\lib\site-packages\keras\utils\traceback_utils.py", line 67, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Users\fazlu\anaconda3\envs\tLearning\lib\site-packages\tensorflow\python\eager\execute.py", line 54, in quick_execute
+    tensors = pywrap_tfe.TFE_Py_Execute(ctx._handle, device_name, op_name,
+tensorflow.python.framework.errors_impl.InvalidArgumentError: Graph execution error:
+
+Detected at node 'sparse_categorical_crossentropy/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits' defined at (most recent call last):
+    File "C:\Project_work\transfer-learning\src\transfer_learning.py", line 86, in <module>
+      main(config_path=parsed_args.config)
+    File "C:\Project_work\transfer-learning\src\transfer_learning.py", line 71, in main
+      history = new_model.fit(X_train, y_train,
+    File "C:\Users\fazlu\anaconda3\envs\tLearning\lib\site-packages\keras\utils\traceback_utils.py", line 64, in error_handler
+      return fn(*args, **kwargs)
+    File "C:\Users\fazlu\anaconda3\envs\tLearning\lib\site-packages\keras\engine\training.py", line 1384, in fit
+      tmp_logs = self.train_function(iterator)
+    File "C:\Users\fazlu\anaconda3\envs\tLearning\lib\site-packages\keras\engine\training.py", line 1021, in train_function
+      return step_function(self, iterator)
+    File "C:\Users\fazlu\anaconda3\envs\tLearning\lib\site-packages\keras\engine\training.py", line 1010, in step_function
+      outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "C:\Users\fazlu\anaconda3\envs\tLearning\lib\site-packages\keras\engine\training.py", line 1000, in run_step
+      outputs = model.train_step(data)
+    File "C:\Users\fazlu\anaconda3\envs\tLearning\lib\site-packages\keras\engine\training.py", line 860, in train_step
+      loss = self.compute_loss(x, y, y_pred, sample_weight)
+    File "C:\Users\fazlu\anaconda3\envs\tLearning\lib\site-packages\keras\engine\training.py", line 918, in compute_loss
+      return self.compiled_loss(
+    File "C:\Users\fazlu\anaconda3\envs\tLearning\lib\site-packages\keras\engine\compile_utils.py", line 201, in __call__
+      loss_value = loss_obj(y_t, y_p, sample_weight=sw)
+    File "C:\Users\fazlu\anaconda3\envs\tLearning\lib\site-packages\keras\losses.py", line 141, in __call__
+      losses = call_fn(y_true, y_pred)
+    File "C:\Users\fazlu\anaconda3\envs\tLearning\lib\site-packages\keras\losses.py", line 245, in call
+      return ag_fn(y_true, y_pred, **self._fn_kwargs)
+    File "C:\Users\fazlu\anaconda3\envs\tLearning\lib\site-packages\keras\losses.py", line 1862, in sparse_categorical_crossentropy
+      return backend.sparse_categorical_crossentropy(
+    File "C:\Users\fazlu\anaconda3\envs\tLearning\lib\site-packages\keras\backend.py", line 5202, in sparse_categorical_crossentropy
+      res = tf.nn.sparse_softmax_cross_entropy_with_logits(
+Node: 'sparse_categorical_crossentropy/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits'
+Received a label value of 9 which is outside the valid range of [0, 2).  Label values: 7 6 2 7 3 2 1 1 5 8 7 9 5 0 9 4 3 2 2 9 4 9 3 1 5 2 1 4 3 7 9 0
+	 [[{{node sparse_categorical_crossentropy/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits}}]] [Op:__inference_train_function_614]
+[2022-03-04 13:59:02,051: INFO: transfer_learning]: 
+********************
+[2022-03-04 13:59:02,051: INFO: transfer_learning]: >>>>> stage transferlearning started <<<<<
+[2022-03-04 13:59:02,052: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-03-04 13:59:30,188: INFO: transfer_learning]: >>>>> stage transferlearning completed!<<<<<
+
+[2022-03-04 13:59:56,490: INFO: prepare_base_model]: 
+********************
+[2022-03-04 13:59:56,490: INFO: prepare_base_model]: >>>>> stage prepare a base model  started <<<<<
+[2022-03-04 13:59:56,491: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-03-04 14:00:33,160: INFO: common]: created directory at: artifacts\models
+[2022-03-04 14:00:33,180: INFO: prepare_base_model]: base model is saved at artifacts\models\base_models.h5
+[2022-03-04 14:00:33,250: INFO: prepare_base_model]: >>>>> stage prepare a base model  completed!<<<<<
+
+[2022-03-04 14:00:55,771: INFO: transfer_learning]: 
+********************
+[2022-03-04 14:00:55,771: INFO: transfer_learning]: >>>>> stage transferlearning started <<<<<
+[2022-03-04 14:00:55,772: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-03-04 14:01:24,067: INFO: transfer_learning]: >>>>> stage transferlearning completed!<<<<<
+
+[2022-03-04 14:04:26,587: INFO: transfer_learning]: 
+********************
+[2022-03-04 14:04:26,587: INFO: transfer_learning]: >>>>> stage transferlearning started <<<<<
+[2022-03-04 14:04:26,588: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-03-04 14:04:55,774: INFO: transfer_learning]: >>>>> stage transferlearning completed!<<<<<
+
